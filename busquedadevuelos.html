@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Búsqueda de Vuelos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    form {
+      max-width: 400px;
+      margin: auto;
+    }
+    input, button {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Buscar Vuelos</h1>
+  <form id="form-busqueda">
+    <input type="text" id="origen" placeholder="Ciudad de origen" required>
+    <input type="text" id="destino" placeholder="Ciudad de destino" required>
+    <input type="date" id="fecha" required>
+    <button type="submit">Buscar</button>
+  </form>
+
+  <div id="resultado"></div>
+
+  <script>
+    document.getElementById('form-busqueda').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const origen = document.getElementById('origen').value;
+      const destino = document.getElementById('destino').value;
+      const fecha = document.getElementById('fecha').value;
+
+      if (!origen || !destino || !fecha) {
+        alert('Por favor, completa todos los campos.');
+        return;
+      }
+
+      // Simulación de resultado
+      const resultado = document.getElementById('resultado');
+      resultado.innerHTML = `
+        <h3>Resultados de búsqueda</h3>
+        <p>Vuelo de <strong>${origen}</strong> a <strong>${destino}</strong> el <strong>${fecha}</strong></p>
+        <p>Precio aproximado: $250 USD</p>
+      `;
+    });
+  </script>
+</body>
+</html>
